@@ -1,24 +1,23 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
+import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
 import './App.css';
-
+import Header from './componenet/header/Header';
+import state from './stor';
+import Loging from './componenet/loging/Loging';
+import Allhaous from './componenet/Allhaous/Allhaous';
+import VillaInfo from './componenet/VillaInfo/VillaInfo';
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Header />} >
+          <Route index element={<Loging />} />
+          <Route path='serch' element={<Allhaous />} />
+          <Route path='serch/:id' element={<VillaInfo />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
